@@ -1,10 +1,8 @@
 @import "~bootstrap/scss/bootstrap";
 
-.App-header {
-    background-color: tomato;
+body {
+    background-color: #DCD6D6;
+    color: #291E1E;
     min-height: 100vh;
-    display:  flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    margin-top: 3em;
 }
