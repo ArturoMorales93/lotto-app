@@ -2,13 +2,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
 
+$body-bg: #DCD6D6;
+$text-dark: #291E1E;
+$link-color: #BD756F;
+$link-color--hover: #9E6FBD;
+$navbar-link-color: $body-bg;
+$navbar-link-color--hover: #C77588;
+$menu-padding: 3em;
+$header-height: 4em;
+$footer-height: 4.5em;
+
 #root {
     min-height: 100vh;
-    background-color: #DCD6D6;
-    color: #291E1E;
-    padding-top: 3em;
+    color: $text-dark;
+    background-color: $body-bg;
     font-family: 'Open Sans', sans-serif;
     position: relative;
+    display: grid;
+    grid-template-rows: $header-height 1fr $footer-height;
 }
 
 h1, h2, h3 {
@@ -20,15 +31,51 @@ p {
 }
 
 a {
-    color: #BD756F;
+    color: $link-color;
+
+    &:hover {
+        color: $link-color--hover;
+    }
 }
 
-.margin-bottom {
-    margin-bottom: 5em;
+.main-menu {
+    padding-left: $menu-padding;
+    padding-right: $menu-padding;
+}
+
+// Overwrite de clase de react-bootsrap
+.mr-auto {
+    width: 100%;
+    justify-content: end;
+    gap: 1em;
+    
+    a {
+        color: $navbar-link-color;
+        text-decoration: none;
+
+        &:hover {
+            color: $navbar-link-color--hover;
+        }
+    }
 }
 
 .footer {
-    position: absolute;
-    bottom: 3em;
-    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-container {
+
+    &>* {
+        margin-bottom: 5em;
+    }
+}
+
+.main-container {
+    margin-top: 3em;
+}
+
+.balls-row {
+    margin-bottom: 1em;
 }
