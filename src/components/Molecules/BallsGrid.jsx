@@ -5,22 +5,29 @@ import axios from 'axios'
 
 const BallsGrid = () => {
 
-    const [state, setState] = useState([])
-    
+    const [ultimoSorteno, setUltimoSorteo] = useState([])
+    const [numeros, setNumeros] = useState([])
+
     useEffect(() => {
-        axios.get("https://jsonplaceholder.typicode.com/users")
-            .then(response => {
-                setState(response.data)
-            })
+        axios.get("https://my-json-server.typicode.com/ArturoMorales93/db-json/ultimoSorteo")
+            .then(response => setUltimoSorteo(response.data))
+    }, [])
+
+    useEffect(() => {
+        axios.get("https://my-json-server.typicode.com/ArturoMorales93/db-json/numeros")
+            .then(response => setNumeros(response.data))
     }, [])
 
     return (
         <>
+            <Row>
+                <Col><p>Actualizado con el sorteo {ultimoSorteno.id}</p></Col>
+            </Row>
             <Row md={5} className="balls-row">
                 {
-                    state.map(n => (
+                    numeros.map(n => (
                         <Col>
-                            <Ball id={n.id} />
+                            <Ball id={n.num} />
                         </Col>
                     ))
                 }

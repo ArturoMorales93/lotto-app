@@ -7,9 +7,6 @@ const Home = () => (
         <Row>
             <Col><h1>Números más frecuentes del Lotto</h1></Col>
         </Row>
-        <Row>
-            <Col><p>Actualizado con el sorteo xxxx</p></Col>
-        </Row>
         <BallsGrid />
     </Container>
 )
