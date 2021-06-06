@@ -1,25 +1,32 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Row, Col } from 'react-bootstrap'
 import Ball from '../Atoms/Ball'
-import Ball2 from '../Atoms/Ball2'
+import axios from 'axios'
 
-const BallsGrid = () => (
-    <>
-        <Row className="balls-row">
-            <Col><Ball /></Col>
-            <Col><Ball /></Col>
-            <Col><Ball /></Col>
-            <Col><Ball /></Col>
-            <Col><Ball /></Col>
-        </Row>
-        <Row className="balls-row">
-            <Col><Ball2 /></Col>
-            <Col><Ball2 /></Col>
-            <Col><Ball2 /></Col>
-            <Col><Ball2 /></Col>
-            <Col><Ball2 /></Col>
-        </Row>
-    </>
-)
+const BallsGrid = () => {
+
+    const [state, setState] = useState([])
+    
+    useEffect(() => {
+        axios.get("https://jsonplaceholder.typicode.com/users")
+            .then(response => {
+                setState(response.data)
+            })
+    }, [])
+
+    return (
+        <>
+            <Row md={5} className="balls-row">
+                {
+                    state.map(n => (
+                        <Col>
+                            <Ball id={n.id} />
+                        </Col>
+                    ))
+                }
+            </Row>
+        </>
+    )
+}
 
 export default BallsGrid
