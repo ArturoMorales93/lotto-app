@@ -11,6 +11,7 @@ const MainMenu = () => (
             <Nav className="mr-auto">
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/tabla">Tabla</NavLink>
+                <NavLink to="/consultar">Consultar</NavLink>
             </Nav>
         </Navbar.Collapse>
     </Navbar>
