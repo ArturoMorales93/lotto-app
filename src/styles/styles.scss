@@ -9,7 +9,7 @@ $link-color--hover: #9E6FBD;
 $navbar-link-color: $body-bg;
 $navbar-link-color--hover: #C77588;
 $header-height: 4em;
-$footer-height: 4.75em;
+$footer-height: 4.5em;
 
 #root {
     min-height: 100vh;
@@ -17,6 +17,8 @@ $footer-height: 4.75em;
     background-color: $body-bg;
     font-family: 'Open Sans', sans-serif;
     position: relative;
+    display: flex;
+    flex-direction: column;
 
     @include media-breakpoint-up(md) {
         display: grid;
@@ -26,6 +28,7 @@ $footer-height: 4.75em;
 
 h1, h2, h3 {
     font-family: 'Limelight', cursive;
+    margin-bottom: 1em;
 }
 
 p {
@@ -96,6 +99,7 @@ a {
     justify-content: center;
     align-items: center;
     font-size: .90em;
+    flex-grow: 0;
 
     height: $footer-height;
 }
@@ -103,12 +107,12 @@ a {
 .home-container {
 
     &>* {
-        --my-margin-bottom: 2.5em;
+        --my-margin-bottom: 2em;
 
         margin-bottom: var(--my-margin-bottom);
 
         @include media-breakpoint-up(md) {
-            --my-margin-bottom: 5em;
+            --my-margin-bottom: 4em;
         }
     }
 }
@@ -116,6 +120,7 @@ a {
 .main-container {
     --my-margin-top: 1.5em;
 
+    flex-grow: 1;
     margin-top: var(--my-margin-top);
 
     @include media-breakpoint-up(md) {
