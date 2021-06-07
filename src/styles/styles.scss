@@ -179,6 +179,7 @@ a {
 .logo-container {
     display: flex;
     justify-content: center;
+    overflow: hidden;
 }
 
 // css original de react para el estilo y animación del logo en la página Acerca de
