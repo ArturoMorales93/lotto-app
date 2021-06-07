@@ -143,6 +143,15 @@ a {
     }
 }
 
+.buttons-group {
+    display: grid;
+
+    @include media-breakpoint-up(md) {
+        display: flex;
+        gap: 1em;
+    }
+}
+
 .form-result {
     --my-margin-top: 1.5em;
 
@@ -150,11 +159,6 @@ a {
 
     @include media-breakpoint-up(md) {
         --my-margin-top: 0;
-    }
-
-    span {
-        display: block;
-        margin-bottom: 1em;
     }
 
     p {

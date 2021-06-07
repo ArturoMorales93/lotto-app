@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Row, Col, Form, Button } from 'react-bootstrap'
+import { Row, Col, Form, Button, Alert } from 'react-bootstrap'
 
 class FormConsult extends Component {
 
@@ -11,13 +11,21 @@ class FormConsult extends Component {
         }
 
         this.showResult = this.showResult.bind(this)
+        this.hideResult = this.hideResult.bind(this)
     }
 
     showResult() {
         const num = document.getElementById("num")
 
         this.setState({
-            result: `El ${num.value} ha caido`
+            result: <Alert variant="success">{`El ${num.value} ha caido`}</Alert>
+        })
+    }
+
+    hideResult() {
+
+        this.setState({
+            result: ""
         })
     }
 
@@ -34,7 +42,7 @@ class FormConsult extends Component {
                 </Row>
                 <Row>
                     <Col md={true}>
-                        <Form id="form">
+                        <Form>
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Label>Número</Form.Label>
                                 <Form.Control type="number" placeholder="Ingrese el número" id="num" />
@@ -42,15 +50,22 @@ class FormConsult extends Component {
                                     Solo números del 0 al 40.
                                 </Form.Text>
                             </Form.Group>
-                            <Button variant="primary" onClick={this.showResult} block>
-                                Consulta
-                            </Button>
+                            <div className="buttons-group">
+                                <Button variant="primary" onClick={this.showResult}>
+                                    Consulta
+                                </Button>
+                                <Button variant="secondary" onClick={this.hideResult} type="reset">
+                                    Limpia
+                                </Button>
+                            </div>
                         </Form>
                     </Col>
                     <Col>
                         <div className="form-result">
                             <span>Resultado</span>
-                            <p>{this.state.result}</p>
+                            <p>
+                                {this.state.result}
+                            </p>
                         </div>
                     </Col>
                 </Row>
