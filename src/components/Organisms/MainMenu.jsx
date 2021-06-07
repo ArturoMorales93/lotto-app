@@ -10,8 +10,8 @@ const MainMenu = () => (
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
                 <NavLink to="/tabla">Tabla</NavLink>
-                <NavLink to="/consultar">Consulta</NavLink>
-                <NavLink to="/consultar">Acerca de</NavLink>
+                <NavLink to="/consulta">Consulta</NavLink>
+                <NavLink to="/acerca-de">Acerca de</NavLink>
             </Nav>
         </Navbar.Collapse>
     </Navbar>

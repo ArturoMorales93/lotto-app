@@ -31,16 +31,6 @@ h1, h2, h3 {
     margin-bottom: 1em;
 }
 
-p {
-    --my-font-size :1.25em;
-
-    font-size: var(--my-font-size);
-
-    @include media-breakpoint-up(md) {
-        --my-font-size: 2em;
-    }
-}
-
 a {
     color: $link-color;
 
@@ -107,12 +97,16 @@ a {
 .home-container {
 
     &>* {
-        --my-margin-bottom: 2em;
+        --my-margin-bottom: 1.5em;
 
         margin-bottom: var(--my-margin-bottom);
 
         @include media-breakpoint-up(md) {
-            --my-margin-bottom: 4em;
+            --my-margin-bottom: 3em;
+        }
+
+        @media (min-width: 1440px) {
+            --my-margin-bottom: 5em;
         }
     }
 }
@@ -146,5 +140,60 @@ a {
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+}
+
+.form-result {
+    --my-margin-top: 1.5em;
+
+    margin-top: var(--my-margin-top);
+
+    @include media-breakpoint-up(md) {
+        --my-margin-top: 0;
+    }
+
+    span {
+        display: block;
+        margin-bottom: 1em;
+    }
+
+    p {
+        font-size: .90em;
+    }
+}
+
+.bigger-text {
+    --my-font-size :1.25em;
+
+    font-size: var(--my-font-size);
+
+    @include media-breakpoint-up(md) {
+        --my-font-size: 2em;
+    }
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+}
+
+// css original de react para el estilo y animación del logo en la página Acerca de
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
     }
 }

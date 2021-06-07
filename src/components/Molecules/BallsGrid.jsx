@@ -20,9 +20,7 @@ const BallsGrid = () => {
 
     return (
         <>
-            <Row>
-                <Col><p>Actualizado con el sorteo {ultimoSorteno.id}</p></Col>
-            </Row>
+            <Col><p className="bigger-text">Actualizado con el sorteo {ultimoSorteno.id}</p></Col>
             <Row md={5} className="balls-row">
                 {
                     numeros.map(n => (
