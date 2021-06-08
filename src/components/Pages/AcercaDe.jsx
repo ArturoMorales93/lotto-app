@@ -10,10 +10,10 @@ const AcercaDe = () => (
         </p>
         <p>
             Toda la información aquí mostrada ha sido procesada con datos reales que se obtuvieron del sitio oficial de la <a href="https://www.jps.go.cr/" target="_blank" rel="noreferrer">Junta de Protección Social</a>.
-            Esta aplicación cuenta con los datos a partir del sorteo 2074 del 21 de octubre del 2020 hasta la fecha.
+            Los datos procesados han sido recogidos desde el sorteo 2074 del 21 de octubre del 2020 hasta la fecha.
         </p>
         <p>
-            Entre los conocimientos aún básicos que se pusieron en práctica, destacan la creación de componentes; de clase y funcionales, el manejo de estados de los componentes, consumo de una fake API rest, y la libreria React-Bootstrap.
+            Entre los conocimientos aún básicos que se pusieron en práctica, destacan la creación de componentes; de clase y funcionales, el manejo de estados de los componentes, uso de HOCs y Hooks, consumo de una fake API rest, y la libreria React-Bootstrap.
         </p>
         <div className="logo-container">
             <img src={logo} className="App-logo" alt="logo" />
