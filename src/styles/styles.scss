@@ -156,6 +156,7 @@ a {
     --my-margin-top: 1.5em;
 
     margin-top: var(--my-margin-top);
+    margin-bottom: 2em;
 
     @include media-breakpoint-up(md) {
         --my-margin-top: 0;

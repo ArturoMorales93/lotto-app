@@ -1,15 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Table } from 'react-bootstrap'
-import axios from 'axios'
+import withLoader from '../HOC/withLoader'
 
-const TableGrid = () => {
-
-    const [numeros, setNumeros] = useState([])
-
-    useEffect(() => (
-        axios.get("https://my-json-server.typicode.com/ArturoMorales93/db-json/numeros")
-            .then(response => setNumeros(response.data))
-    ), [])
+const TableGrid = ({numerosTop}) => {
 
     return (
         <Table striped bordered hover size="sm" variant="dark" responsive>
@@ -18,7 +11,7 @@ const TableGrid = () => {
                 <tr>
                     <th className="text-center">Números</th>
                     {
-                        numeros.map(n => (
+                        numerosTop.data.map(n => (
                             <th>{n.num}</th>
                         ))
                     }
@@ -26,7 +19,7 @@ const TableGrid = () => {
                 <tr>
                     <th className="text-center">Cantidad</th>
                     {
-                        numeros.map(n => (
+                        numerosTop.data.map(n => (
                             <th>{n.cant}</th>
                         ))
                     }
@@ -37,4 +30,4 @@ const TableGrid = () => {
 
 }
 
-export default TableGrid
+export default withLoader("numerosTop")(TableGrid)

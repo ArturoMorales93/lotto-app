@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Row, Col, Form, Button, Alert } from 'react-bootstrap'
+import withLoader from '../HOC/withLoader'
 
 class FormConsult extends Component {
 
@@ -7,7 +8,7 @@ class FormConsult extends Component {
         super(props)
 
         this.state = {
-            result: ""
+            result: "",
         }
 
         this.showResult = this.showResult.bind(this)
@@ -15,17 +16,23 @@ class FormConsult extends Component {
     }
 
     showResult() {
-        const num = document.getElementById("num")
+        const num = parseInt(document.getElementById("num").value)
+        var component
+
+        isNaN(num) || (num < 0 || num > 40)
+            ? component = <Alert variant="danger">Debe ingresar un número entre el 0 y el 40</Alert>
+            : component = <Alert variant="success">{
+                `El ${num} ha salido ${this.props.numeros.data.numeros[num].cant} veces`
+            }</Alert>
 
         this.setState({
-            result: <Alert variant="success">{`El ${num.value} ha caido`}</Alert>
+            result: component
         })
     }
 
     hideResult() {
-
         this.setState({
-            result: ""
+            result: "",
         })
     }
 
@@ -42,8 +49,8 @@ class FormConsult extends Component {
                 </Row>
                 <Row>
                     <Col md={true}>
-                        <Form>
-                            <Form.Group controlId="formBasicEmail">
+                        <Form onSubmit={this.handleSubmit}>
+                            <Form.Group>
                                 <Form.Label>Número</Form.Label>
                                 <Form.Control type="number" placeholder="Ingrese el número" id="num" />
                                 <Form.Text className="text-muted">
@@ -75,4 +82,4 @@ class FormConsult extends Component {
 
 }
 
-export default FormConsult
+export default withLoader("numeros")(FormConsult)

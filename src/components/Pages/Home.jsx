@@ -4,7 +4,6 @@ import BallsGrid from '../Molecules/BallsGrid'
 import useAxios from '../CustomHooks/useAxios'
 
 const Home = () => {
-
     /* 
         Se intento optimizar la consulta a una sola, pero da un error al
         momento de acualizar el estado que aún desconosco
