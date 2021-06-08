@@ -9,21 +9,31 @@ class FormConsult extends Component {
 
         this.state = {
             result: "",
+            numInput: []
         }
 
         this.showResult = this.showResult.bind(this)
         this.hideResult = this.hideResult.bind(this)
+        this.inputFocus = this.inputFocus.bind(this)
     }
 
-    showResult() {
-        const num = parseInt(document.getElementById("num").value)
-        var component
+    showResult(event) {
+        event.preventDefault()
 
-        isNaN(num) || (num < 0 || num > 40)
-            ? component = <Alert variant="danger">Debe ingresar un número entre el 0 y el 40</Alert>
-            : component = <Alert variant="success">{
+        const num = parseInt(this.state.numInput.value)
+        const inputClassList = this.state.numInput.classList
+        var component = <></>
+
+        if (isNaN(num) || (num < 0 || num > 40)) {
+            inputClassList.add("border-danger")
+            component = <Alert variant="danger">Debe ingresar un número entre el 0 y el 40</Alert>
+        } else {
+            inputClassList.remove("border-danger")
+            inputClassList.add("border-success")
+            component = <Alert variant="success">{
                 `El ${num} ha salido ${this.props.numeros.data.numeros[num].cant} veces`
             }</Alert>
+        }
 
         this.setState({
             result: component
@@ -31,12 +41,25 @@ class FormConsult extends Component {
     }
 
     hideResult() {
+        const inputClassList = this.state.numInput.classList
+        inputClassList.remove("border-danger")
+        inputClassList.remove("border-success")
+
         this.setState({
-            result: "",
+            result: ""
         })
     }
 
+    inputFocus(){
+        const inputClassList = this.state.numInput.classList
+        inputClassList.remove("border-danger")
+        inputClassList.remove("border-success")
+    }
+
     componentDidMount() {
+        this.setState({
+            numInput: document.getElementById("numInput")
+        })
     }
 
     render() {
@@ -49,19 +72,19 @@ class FormConsult extends Component {
                 </Row>
                 <Row>
                     <Col md={true}>
-                        <Form onSubmit={this.handleSubmit}>
-                            <Form.Group>
+                        <Form noValidate onSubmit={this.showResult}>
+                            <Form.Group controlId="numInput" onFocus={this.inputFocus}>
                                 <Form.Label>Número</Form.Label>
-                                <Form.Control type="number" placeholder="Ingrese el número" id="num" />
+                                <Form.Control className="border" type="number" placeholder="Ingrese el número" />
                                 <Form.Text className="text-muted">
                                     Solo números del 0 al 40.
                                 </Form.Text>
                             </Form.Group>
                             <div className="buttons-group">
-                                <Button variant="primary" onClick={this.showResult}>
+                                <Button variant="primary" type="submit">
                                     Consulta
                                 </Button>
-                                <Button variant="secondary" onClick={this.hideResult} type="reset">
+                                <Button variant="secondary" type="reset" onClick={this.hideResult}>
                                     Limpia
                                 </Button>
                             </div>

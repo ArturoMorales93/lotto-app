@@ -5,7 +5,7 @@ import Icon from '../Atoms/Icon'
 
 const MainMenu = () => (
     <Navbar bg="dark" variant="dark" expand="md" sticky="top" className="main-menu">
-        <NavLink to="/"><Icon /></NavLink>
+        <NavLink exact to="/"><Icon /></NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">

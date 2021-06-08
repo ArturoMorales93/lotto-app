@@ -67,9 +67,18 @@ a {
     
     a {
         color: $navbar-link-color;
+        transition: .25s;
 
         &:hover {
             color: $navbar-link-color--hover;
+        }
+    }
+
+    .active {
+        color: $navbar-link-color--hover;
+        
+        @include media-breakpoint-up(md) {
+            transform: scale3d(1.25, 1.25, 1)
         }
     }
 }
