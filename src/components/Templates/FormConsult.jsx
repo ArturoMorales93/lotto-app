@@ -9,9 +9,9 @@ class FormConsult extends Component {
 
         this.state = {
             result: "",
-            numInput: []
         }
 
+        this.numInput = {}
         this.showResult = this.showResult.bind(this)
         this.hideResult = this.hideResult.bind(this)
         this.inputFocus = this.inputFocus.bind(this)
@@ -20,8 +20,8 @@ class FormConsult extends Component {
     showResult(event) {
         event.preventDefault()
 
-        const num = parseInt(this.state.numInput.value)
-        const inputClassList = this.state.numInput.classList
+        const num = parseInt(this.numInput.value)
+        const inputClassList = this.numInput.classList
         var component = <></>
 
         if (isNaN(num) || (num < 0 || num > 40)) {
@@ -33,6 +33,7 @@ class FormConsult extends Component {
             component = <Alert variant="success">{
                 `El ${num} ha salido ${this.props.numeros.data.numeros[num].cant} veces`
             }</Alert>
+            this.numInput.value = ""
         }
 
         this.setState({
@@ -41,7 +42,7 @@ class FormConsult extends Component {
     }
 
     hideResult() {
-        const inputClassList = this.state.numInput.classList
+        const inputClassList = this.numInput.classList
         inputClassList.remove("border-danger")
         inputClassList.remove("border-success")
 
@@ -51,15 +52,16 @@ class FormConsult extends Component {
     }
 
     inputFocus(){
-        const inputClassList = this.state.numInput.classList
+        const inputClassList = this.numInput.classList
         inputClassList.remove("border-danger")
         inputClassList.remove("border-success")
     }
 
     componentDidMount() {
-        this.setState({
-            numInput: document.getElementById("numInput")
-        })
+        // this.setState({
+        //     numInput: document.getElementById("numInput")
+        // })
+        this.numInput = document.getElementById("numInput")
     }
 
     render() {
