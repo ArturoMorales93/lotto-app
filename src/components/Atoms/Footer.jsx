@@ -5,7 +5,7 @@ const Footer = () => (
     <Col className="footer text-center">
         <span>
             Hecho por Arturo Morales utilizando React <br/>
-            Repositorio en GitHub <a href="/">aquí.</a>
+            Repositorio en GitHub <a href="https://github.com/ArturoMorales93/lotto-app" target="_blank" rel="noreferrer">aquí.</a>
         </span>
     </Col>
 )
