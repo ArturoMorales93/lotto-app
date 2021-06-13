@@ -184,6 +184,11 @@ a {
     @include media-breakpoint-up(md) {
         --my-font-size: 2em;
     }
+
+    span {
+        display: block;
+        font-size: .85em;
+    }
 }
 
 .logo-container {
