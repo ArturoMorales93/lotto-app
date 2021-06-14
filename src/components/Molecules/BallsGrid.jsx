@@ -6,9 +6,9 @@ import withLoader from '../HOC/withLoader'
 const BallsGrid = ({ ultimoSorteo, numerosTop }) => {
     return (
         <>
-            <Col><p className="bigger-text">Actualizado con el sorteo del
+            <Col><p className="bigger-text">Actualizado con el sorteo 
                 <span>
-                    {ultimoSorteo.data.fecha} n° {ultimoSorteo.data.id}
+                    n° {ultimoSorteo.data.id} del {ultimoSorteo.data.fecha}
                 </span>
             </p></Col>
             <Row md={5} className="balls-row">

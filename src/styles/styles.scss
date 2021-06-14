@@ -1,3 +1,4 @@
+$enable-responsive-font-sizes: true;
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
@@ -111,11 +112,11 @@ a {
         margin-bottom: var(--my-margin-bottom);
 
         @include media-breakpoint-up(md) {
-            --my-margin-bottom: 3em;
+            --my-margin-bottom: 2.5em;
         }
 
         @media (min-width: 1440px) {
-            --my-margin-bottom: 5em;
+            --my-margin-bottom: 3.5em;
         }
     }
 }
@@ -143,13 +144,29 @@ a {
     position: relative;
 
     span {
+        --my-font-size: 1.5em;
+
         width: 100%;
         height: 100%;
-        font-size: 32px;
+        font-size: var(--my-font-size);
         position: absolute;
         display: flex;
         justify-content: center;
         align-items: center;
+
+        @include media-breakpoint-up(md) {
+            --my-font-size: 2em;
+        }
+    }
+
+    svg {
+        --ball-width: 4.5em;
+
+        width: var(--ball-width);
+
+        @include media-breakpoint-up(md) {
+            --ball-width: 100px;
+        }
     }
 }
 
