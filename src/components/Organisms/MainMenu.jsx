@@ -9,6 +9,7 @@ const MainMenu = () => (
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
+                <NavLink exact to="/">Home</NavLink>
                 <NavLink to="/tabla">Tabla</NavLink>
                 <NavLink to="/consulta">Consulta</NavLink>
                 <NavLink to="/acerca-de">Acerca de</NavLink>
