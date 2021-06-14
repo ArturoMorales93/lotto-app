@@ -8,7 +8,7 @@ const BallsGrid = ({ ultimoSorteo, numerosTop }) => {
         <>
             <Col><p className="bigger-text">Actualizado con el sorteo del
                 <span>
-                    {ultimoSorteo.data.fecha} - {ultimoSorteo.data.id}
+                    {ultimoSorteo.data.fecha} n° {ultimoSorteo.data.id}
                 </span>
             </p></Col>
             <Row md={5} className="balls-row">

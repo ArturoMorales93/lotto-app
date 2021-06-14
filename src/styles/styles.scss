@@ -62,7 +62,7 @@ a {
 // Overwrite de clase de react-bootsrap
 .mr-auto {
     width: 100%;
-    justify-content: end;
+    justify-content: flex-end;
     gap: 1.5em;
     
     a {
@@ -132,7 +132,8 @@ a {
 }
 
 .balls-row {
-    
+    justify-content: center;
+
     &>* {
         margin-bottom: 1em;           
     }
