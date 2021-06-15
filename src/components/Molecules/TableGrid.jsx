@@ -12,7 +12,7 @@ const TableGrid = ({numerosTop}) => {
                     <th className="text-center">Números</th>
                     {
                         numerosTop.data.map(n => (
-                            <th>{n.num}</th>
+                            <td key={n.num}>{n.num}</td>
                         ))
                     }
                 </tr>
@@ -20,7 +20,7 @@ const TableGrid = ({numerosTop}) => {
                     <th className="text-center">Cantidad</th>
                     {
                         numerosTop.data.map(n => (
-                            <th>{n.cant}</th>
+                            <td key={n.num}>{n.cant}</td>
                         ))
                     }
                 </tr>

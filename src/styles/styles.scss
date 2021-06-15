@@ -9,21 +9,23 @@ $link-color: #BD756F;
 $link-color--hover: #9E6FBD;
 $navbar-link-color: $body-bg;
 $navbar-link-color--hover: #C77588;
-$header-height: 4em;
-$footer-height: 4.5em;
 
 #root {
+    --header-height: 3em;
+    --footer-height: 4.5em;
+
+    display: grid;
+    position: relative;
     min-height: 100vh;
     color: $text-dark;
     background-color: $body-bg;
     font-family: 'Open Sans', sans-serif;
-    position: relative;
-    display: flex;
-    flex-direction: column;
+    grid-template-rows: 1fr var(--footer-height) var(--header-height);
+    grid-template-columns: 100vw;
 
     @include media-breakpoint-up(md) {
-        display: grid;
-        grid-template-rows: $header-height 1fr $footer-height;
+        --header-height: 4em;
+        grid-template-rows: var(--header-height) 1fr var(--footer-height);
     }
 }
 
@@ -43,12 +45,19 @@ a {
 
 .main-menu {
     --menu-padding: 1em;
-    
+
+    position: sticky;   
+    z-index: 1;
+    grid-row: 3;
+    bottom: 0;
     padding-left: var(--menu-padding);
     padding-right: var(--menu-padding);
 
     @include media-breakpoint-up(md) {
         --menu-padding: 5em;
+
+        top: 0;
+        grid-row: 1;
     }
 
     @include media-breakpoint-up(xl) {
@@ -63,16 +72,12 @@ a {
 // Overwrite de clase de react-bootsrap
 .mr-auto {
     width: 100%;
-    justify-content: flex-end;
-    gap: 1.5em;
-    
-    a {
-        color: $navbar-link-color;
-        transition: .25s;
+    flex-direction: row;
+    justify-content: space-between;
+    grid-gap: 1.5em;
 
-        &:hover {
-            color: $navbar-link-color--hover;
-        }
+    @include media-breakpoint-up(md) {
+        justify-content: flex-end;
     }
 
     .active {
@@ -81,6 +86,30 @@ a {
         @include media-breakpoint-up(md) {
             transform: scale3d(1.25, 1.25, 1)
         }
+    }
+}
+
+.menu-item {
+    --my-font-size: .5em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $navbar-link-color;
+    transition: .25s;
+    font-size: var(--my-font-size);
+
+    @include media-breakpoint-up(md) {
+        --my-font-size: 1em;
+    }
+
+    &:hover {
+        color: $navbar-link-color--hover;
+    }
+
+    svg {
+        fill: currentColor;
     }
 }
 
@@ -100,8 +129,6 @@ a {
     align-items: center;
     font-size: .90em;
     flex-grow: 0;
-
-    height: $footer-height;
 }
 
 .home-container {
@@ -124,7 +151,6 @@ a {
 .main-container {
     --my-margin-top: 1.5em;
 
-    flex-grow: 1;
     margin-top: var(--my-margin-top);
 
     @include media-breakpoint-up(md) {

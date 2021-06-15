@@ -14,7 +14,7 @@ const BallsGrid = ({ ultimoSorteo, numerosTop }) => {
             <Row md={5} className="balls-row">
                 {
                     numerosTop.data.map(n => (
-                        <Col>
+                        <Col key={n.num}>
                             <Ball id={n.num} />
                         </Col>
                     ))
