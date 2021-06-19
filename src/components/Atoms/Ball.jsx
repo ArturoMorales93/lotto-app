@@ -1,8 +1,15 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { addToCounter, deleteFromCounter } from '../../redux/actionCreators'
 
-const Ball = (props) => (
-    <div className="ball-container">
-        <span>{ props.id }</span>
+const Ball = ({ id, balls, addBallToCounter, deleteBallFromCounter }) => (
+    <div onClick={() =>
+        balls.find(a => a === id)
+            ? deleteBallFromCounter(id)
+            : addBallToCounter(id)
+    }
+        className="ball-container">
+        <span>{id}</span>
         <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_i)">
                 <circle cx="50" cy="50" r="50" fill="#E9EBD6" />
@@ -23,4 +30,17 @@ const Ball = (props) => (
     </div>
 )
 
-export default Ball
+const mapStateToProps = state => ({
+    balls: state.balls
+})
+
+const mapDispatchToProps = dispatch => ({
+    addBallToCounter(id) {
+        dispatch(addToCounter(id))
+    },
+    deleteBallFromCounter(id) {
+        dispatch(deleteFromCounter(id))
+    }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Ball)

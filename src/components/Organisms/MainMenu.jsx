@@ -7,6 +7,7 @@ import IconHome from '../Atoms/IconHome'
 import IconTable from '../Atoms/IconTable'
 import IconConsult from '../Atoms/IconConsult'
 import IconAbout from '../Atoms/IconAbout'
+import BallsCounter from '../Atoms/BallsCounter'
 
 const MainMenu = () => (
     <Navbar bg="dark" variant="dark" className="main-menu">
@@ -30,6 +31,7 @@ const MainMenu = () => (
                 {useMediaQuery("down", <IconAbout />)}
                 Acerca de
             </NavLink>
+            <BallsCounter />
         </Nav>
     </Navbar>
 )
