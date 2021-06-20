@@ -7,12 +7,12 @@ const BallsGrid = ({ ultimoSorteo, numerosTop }) => (
     <>
         <Col><p className="bigger-text">Actualizado con el sorteo
             <span>
-                n° {ultimoSorteo.data.id} del {ultimoSorteo.data.fecha}
+                n° {ultimoSorteo.id} del {ultimoSorteo.fecha}
             </span>
         </p></Col>
         <Row md={5} className="balls-row">
             {
-                numerosTop.data.map(n => (
+                numerosTop.map(n => (
                     <Col key={n.num}>
                         <Ball id={n.num} />
                     </Col>

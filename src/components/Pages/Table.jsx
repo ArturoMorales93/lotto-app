@@ -1,18 +1,17 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 import TableGrid from '../Molecules/TableGrid'
-import useAxios from '../CustomHooks/useAxios'
+import { connect } from 'react-redux'
 
-const Table = () => {
-    const numerosTop = useAxios("https://my-json-server.typicode.com/ArturoMorales93/fake-API/numerosTop"
-        , [])
+const Table = ({ numerosTop }) => (
+    <Container className="main-container">
+        <h1>Tabla de resultados</h1>
+        <TableGrid numerosTop={numerosTop} />
+    </Container>
+)
 
-    return (
-        <Container className="main-container">
-            <h1>Tabla de resultados</h1>
-            <TableGrid numerosTop={numerosTop} />
-        </Container>
-    )
-}
+const mapStateToProps = state => ({
+    numerosTop: state.sorteosReducer.numerosTop
+})
 
-export default Table
+export default connect(mapStateToProps, {})(Table)

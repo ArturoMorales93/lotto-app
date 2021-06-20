@@ -168,7 +168,7 @@ a {
 
 .ball-container {
     position: relative;
-    cursor: pointer;
+    // cursor: pointer;
     transition: .25s ;
 
     span {
@@ -197,9 +197,9 @@ a {
         }
     }
 
-    &:active {
-        transform: scale3d(1.3, 1.3, 1);
-    }
+    // &:active {
+    //     transform: scale3d(1.3, 1.3, 1);
+    // }
 }
 
 .buttons-group {

@@ -7,11 +7,7 @@ const BallsCounter = ({ balls }) => (
 )
 
 const mapStateToProps = state => ({
-    balls: state.balls
+    balls: state.counterReducer.balls
 })
 
-const mapDispatchToProps = () => {
-
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(BallsCounter)
+export default connect(mapStateToProps, {})(BallsCounter)

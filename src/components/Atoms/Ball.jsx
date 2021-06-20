@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import { addToCounter, deleteFromCounter } from '../../redux/actionCreators'
 
 const Ball = ({ id, balls, addBallToCounter, deleteBallFromCounter }) => (
-    <div onClick={() =>
+    <div /*onClick={() =>
         balls.find(a => a === id)
             ? deleteBallFromCounter(id)
             : addBallToCounter(id)
-    }
+    }*/
         className="ball-container">
         <span>{id}</span>
         <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -31,7 +31,7 @@ const Ball = ({ id, balls, addBallToCounter, deleteBallFromCounter }) => (
 )
 
 const mapStateToProps = state => ({
-    balls: state.balls
+    balls: state.counterReducer.balls
 })
 
 const mapDispatchToProps = dispatch => ({
