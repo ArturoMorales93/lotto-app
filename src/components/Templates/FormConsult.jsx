@@ -31,7 +31,7 @@ class FormConsult extends Component {
             inputClassList.remove("border-danger")
             inputClassList.add("border-success")
             component = <Alert variant="success">{
-                `El ${num} ha salido ${this.props.numeros.data.numeros[num].cant} veces`
+                `El ${num} ha salido ${this.props.numeros.numeros[num].cant} veces`
             }</Alert>
             this.numInput.value = ""
         }
@@ -58,9 +58,6 @@ class FormConsult extends Component {
     }
 
     componentDidMount() {
-        // this.setState({
-        //     numInput: document.getElementById("numInput")
-        // })
         this.numInput = document.getElementById("numInput")
     }
 
