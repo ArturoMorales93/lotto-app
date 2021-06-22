@@ -80,11 +80,11 @@ class FormConsult extends Component {
                                 </Form.Text>
                             </Form.Group>
                             <div className="buttons-group">
-                                <Button variant="primary" type="submit">
-                                    Consulta
+                                <Button variant="secondary" type="submit">
+                                    Consulte
                                 </Button>
-                                <Button variant="secondary" type="reset" onClick={this.hideResult}>
-                                    Limpia
+                                <Button variant="outline-secondary" type="reset" onClick={this.hideResult}>
+                                    Limpie
                                 </Button>
                             </div>
                         </Form>
