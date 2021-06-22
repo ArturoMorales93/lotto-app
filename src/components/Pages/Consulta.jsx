@@ -8,7 +8,7 @@ const Consulta = ({ numeros }) => (
     <Container className="main-container">
         <h1>Consulta de números</h1>
         {/* <FormConsult numeros={numeros} /> */}
-        <HookForm />
+        <HookForm numeros={numeros.numeros} />
     </Container>
 )
 
