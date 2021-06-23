@@ -23,7 +23,7 @@ const HookForm = ({ numeros }) => {
                     <Form onSubmit={handleSubmit(onSubmit)}>
                         <Form.Group controlId="num">
                             <Form.Label>Número</Form.Label>
-                            <Form.Control placeholder="Nombre"
+                            <Form.Control placeholder="Ingrese el número"
                                 type="number"
                                 {...register(
                                     "num",
@@ -43,7 +43,7 @@ const HookForm = ({ numeros }) => {
                                     }
                                 )}
                             />
-                            <Form.Text className="text-muted">
+                            <Form.Text className="text-muted" id="textMuted">
                                 Los números de lotto van del 0 al 40.
                             </Form.Text>
                             {
@@ -68,11 +68,11 @@ const HookForm = ({ numeros }) => {
                         <span>Resultado</span>
                         {
                             data.num &&
-                                <p>
-                            <Alert variant="secondary">
-                                {`El ${data.num} ha salido ${numeros[data.num].cant} veces`}
-                            </Alert>
-                                </p>
+                            <p>
+                                <Alert variant="secondary">
+                                    {`El ${data.num} ha salido ${numeros[data.num].cant} veces`}
+                                </Alert>
+                            </p>
                         }
                     </div>
                 </Col>
