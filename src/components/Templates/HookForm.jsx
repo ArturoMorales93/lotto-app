@@ -1,15 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Row, Col, Form, Button, Alert } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
 
 const HookForm = ({ numeros }) => {
 
     const [data, setData] = useState("")
+    const [inputNum, setInputNum] = useState({})
     const { register, formState: { errors }, handleSubmit } = useForm()
     const onSubmit = (data, e) => {
         setData(data)
         e.target.reset()
     }
+    const getFocus = () => {
+        inputNum.focus()
+    }
+    useEffect(() => (
+        setInputNum(document.getElementById("num"))
+    ), [])
 
     return (
         <>
@@ -57,7 +64,7 @@ const HookForm = ({ numeros }) => {
                             <Button variant="primary" type="submit">
                                 Consulte
                             </Button>
-                            <Button variant="outline-secondary" type="reset">
+                            <Button variant="outline-secondary" type="reset" onClick={getFocus}>
                                 Limpie
                             </Button>
                         </div>
